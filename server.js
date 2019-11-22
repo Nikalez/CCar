@@ -10,6 +10,7 @@ const app = express()
 const expressLayouts = require('express-ejs-layouts')
 
 const indexRouter = require('./routes/index')
+const carsRouter = require('./routes/cars')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -18,5 +19,6 @@ app.use(expressLayouts)
 app.use(express.static('public'))
 
 app.use('/', indexRouter)
+app.use('/cars', carsRouter)
 
 app.listen(process.env.PORT || 3000)
